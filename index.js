@@ -19,11 +19,11 @@ mongoose.connect( process.env.MONGO_URI, {
 
 app.use( morgan( 'tiny' ) )
 app.use( cors() )
-app.use( history() )
 app.use( bodyParser.urlencoded({ extended: true }) )
 app.use( bodyParser.json() )
 
 app.use('/api', routes)
+app.use( history() )
 
 app.listen(PORT, () => {
     console.log(`Escuchando en el puerto ${PORT}`);
