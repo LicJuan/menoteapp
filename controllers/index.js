@@ -1,3 +1,4 @@
 module.exports = {
-    NotaController: require('./NotaController')
+    NotaController: require('./NotaController'),
+    UserController: require('./UserController')
 }
