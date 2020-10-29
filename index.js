@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const history = require('connect-history-api-fallback')
 const cors = require('cors')
+const path = require('path')
 const routes = require('./routes')
 const PORT = process.env.PORT || 5000
 
@@ -19,6 +20,7 @@ mongoose.connect( process.env.MONGO_URI, {
 
 app.use( morgan( 'tiny' ) )
 app.use( cors() )
+app.use( express.static(path.join(__dirname + '/public')) )
 app.use( bodyParser.urlencoded({ extended: true }) )
 app.use( bodyParser.json() )
 
