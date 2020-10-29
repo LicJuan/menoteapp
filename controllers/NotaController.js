@@ -3,6 +3,7 @@ const Nota = require('../models/Nota')
 module.exports = {
     crear: async ( req, res ) => {
         const body = req.body
+        body.usuarioId = req.user._id
         try {
             const nota = await Nota.create(body)
             res.json(nota)
