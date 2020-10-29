@@ -15,9 +15,9 @@ module.exports = {
         }
     },
     listar: async ( req, res ) => {
-        const user = req.user._id
+        const usuarioId = req.user._id
         try {
-            const notas = await Nota.find({user})
+            const notas = await Nota.find({usuarioId})
             res.json( notas )
         } catch (error) {
             res.status( 500 ).json({
